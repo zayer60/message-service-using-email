@@ -54,5 +54,14 @@ class DeleteGroup( DeleteView):
     template_name = 'sendemailapp/group-delete.html'
     success_url = reverse_lazy('group-list')
 
+class SearchPatient(ListView):
+    model = Patient
+    context_object_name = 'patient_list'
+    template_name = 'sendemailapp/search-patient.html'
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        return Patient.objects.filter(name__icontains=query)
+
 
 

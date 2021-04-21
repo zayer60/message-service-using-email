@@ -19,7 +19,7 @@
                     <td>{{ patients.dob|date:'M.d,Y' }}</td>
                     <td>
                         {% for group in patients.groups.all %}
-                        <span>{{ group.name }}</span>
+                            <span>{{ group.name }}</span>
                         {% endfor %}
                     </td>
 
