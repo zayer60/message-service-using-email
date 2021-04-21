@@ -1,12 +1,16 @@
 {% extends 'base.html' %}
 {% block title %}Groups{% endblock title %}
 {% block content %}
-<button type="button" class="btn btn-dark"><a href ="{% url 'group-create' %}">Add New Group</a></button>
-        <br>
-        <br>
-{% for group in object_list %}
-<div>
-    <h2><a href="{{ group.get_absolute_url }}">{{ group.name }}</a></h2>
-</div>
-{% endfor %}
+    <br>
+    <br>
+    <button type="button" class="btn btn-dark"><a href ="{% url 'group-create' %}">Add New Group</a></button>
+            <br>
+            <br>
+    {% for group in object_list %}
+    <div class="card">
+            <div class="card-header">
+                <span class="font-weight-bold"><a href="{{ group.get_absolute_url }} ">{{ group.name }}</a></span> &middot;
+            </div>
+    </div>
+    {% endfor %}
 {% endblock content %}
