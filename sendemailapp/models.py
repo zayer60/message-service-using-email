@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Group(models.Model):
@@ -7,6 +8,9 @@ class Group(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('group-details', args=[str(self.id)])
 
 
 class Patient(models.Model):
@@ -24,6 +28,9 @@ class Patient(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('patient-list')
 
 
 
